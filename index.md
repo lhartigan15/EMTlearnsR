@@ -11,7 +11,7 @@ I will keep this page updated with our bi-weekly code files and recordings, prac
 ### Exercises
 | Exercises      | Due Date          |
 |:-------------|:------------------|
-|[Exercise 1](./Exercise1.pdf) |  11/8/21 |
+|[Exercise 1](./Exercise-1.pdf) |  11/8/21 |
 
 ### YAML header
 When you download an .Rmd file from this site, the YAML header will be removed (for some reason). Here is a sample header that you can paste at the top of your .Rmd file. Note, this MUST begin on line 1 of your .Rmd file and the formatting must stay consistent in order for it to work (e.g., must begin with three dashes and end with three dashes).

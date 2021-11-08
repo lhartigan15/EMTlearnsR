@@ -7,10 +7,10 @@ I will keep this page updated with our bi-weekly code files and recordings, prac
 
 ### Weekly Session .Rmd Files and Knit Notes
 1. [see recording below; no notes provided]
-2. [Session 2, 11/8/21, Notes .Rmd File](./Session 2 Notes.Rmd), [Session 2 Notes PDF](./Session-2-Notes.pdf), [college dataset](./college.Rdata)
+2. [Session 2 (11/8/21) .Rmd File](./Session 2 Notes.Rmd), [Session 2 Notes PDF](./Session-2-Notes.pdf), [college dataset](./college.Rdata)
 
 ### Meeting Recordings
-1. [Monday, 10/25/21 - lesson 1: What are R, Rstudio, and RMarkdown?](https://us02web.zoom.us/rec/share/ouXW6BEqyR7O7-jd6hNhmg7aoaH2LxzhAkhr4bdq_TCd6P7sRzjlKBgeHeVqYAjf.DwEPL-ZgI_1oKyyx) (passcode: @hszg4*r)
+1. [Session 1 (10/25/21): What are R, Rstudio, and RMarkdown?](https://us02web.zoom.us/rec/share/ouXW6BEqyR7O7-jd6hNhmg7aoaH2LxzhAkhr4bdq_TCd6P7sRzjlKBgeHeVqYAjf.DwEPL-ZgI_1oKyyx) (passcode: @hszg4*r)
 
 ### Exercises
 Please upload all exercises by their due date whenever possible (before the R session begins that day). Please upload your completed file(s) to the folder here: M:\Professional Development\EMT Learns R\Exercises. Name files as follows: "Exercise # - First and Last Name". 

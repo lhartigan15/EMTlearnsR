@@ -5,6 +5,10 @@ I will keep this page updated with our bi-weekly code files and recordings, prac
 - Instructions for installing/updating R and Rstudio can be found [here](./Downloading Installing Updating R and RStudio.pdf).
 - [Here](./Intro to R_final.pptx) is a slide deck with helpful information for navigating and setting up R, knitting in R Markdown, and general troubleshooting tips.
 
+### Weekly Session .Rmd Files and Knit Notes
+1. [see recording below; no notes provided]
+2. [Session 2, 11/8/21, Notes .Rmd File](./Session 2 Notes.Rmd), [Session 2 Notes PDF](./Session-2-Notes.pdf), [college dataset](./college.Rdata)
+
 ### Meeting Recordings
 1. [Monday, 10/25/21 - lesson 1: What are R, Rstudio, and RMarkdown?](https://us02web.zoom.us/rec/share/ouXW6BEqyR7O7-jd6hNhmg7aoaH2LxzhAkhr4bdq_TCd6P7sRzjlKBgeHeVqYAjf.DwEPL-ZgI_1oKyyx) (passcode: @hszg4*r)
 

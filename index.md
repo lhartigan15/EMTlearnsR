@@ -9,7 +9,8 @@ I will keep this page updated with our bi-weekly code files and recordings, prac
 1. [Monday, 10/25/21 - lesson 1: What are R, Rstudio, and RMarkdown?](https://us02web.zoom.us/rec/share/ouXW6BEqyR7O7-jd6hNhmg7aoaH2LxzhAkhr4bdq_TCd6P7sRzjlKBgeHeVqYAjf.DwEPL-ZgI_1oKyyx) (passcode: @hszg4*r)
 
 ### Exercises
-Please upload all exercises (before our next session begins) to the folder here: M:\Professional Development\EMT Learns R\Exercises. Name the file as follows: "Exercise # - First and Last Name"
+Please upload all exercises by their due date whenever possible (before the R session begins that day). Please upload your completed file(s) to the folder here: M:\Professional Development\EMT Learns R\Exercises. Name files as follows: "Exercise # - First and Last Name". 
+
 [Exercise 1](./Exercise-1.pdf) |  due 11/8/21 
 
 ### YAML header

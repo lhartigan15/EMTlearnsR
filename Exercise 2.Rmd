@@ -1,0 +1,44 @@
+---
+title: "Exercise 2"
+author: "EMT Learns R"
+output:
+  pdf_document: default
+---
+
+
+1. Add a YAML header to this Exercise 2 Starter .Rmd file. 
+
+
+2. Install the following packages by putting this code in your console: install.packages("packagename") for each package. I want you to go ahead and install: tidyverse, haven, and readxl. After installed, load them using the library command here in this first code chunk.
+```{r}
+
+```
+
+
+3. Locate the working directory for this .Rmd file.  
+```{r}
+
+```
+
+
+4. Import the excel file named ("naloxonecleaned_allobservations_todate") from the M Drive (*Project folder 322-State Opioid Response (SOR) > 11 - Quarterly and Annual Reports > Data > Naloxone Inventory Data*). You will need to use the function read_excel instead of load (for more info about readxl, see here: https://readxl.tidyverse.org/). Also, make sure you assign a name to the dataset when you read it in by specifying a name (of your choosing) before a backwards arrow. See my example commented out in the code chunk below.  
+```{r}
+#Change what's needed in the code below to make this run. In my example, I'm calling the data "NALOXONE_DATA" when I import it into R. You will need to change everything that's in all caps to run this code (and un-comment it out so that R interprets it as code).
+
+#NALOXONE_DATA<-read_excel("PATH/FILENAME.xlsx")
+```
+
+
+5. How many observations are in this dataset? How many variables are in this dataset? Where did you find that information in R? 
+
+
+
+6. Knit this completed file to html and upload that to the Exercises folder (be sure to name this .Rmd file as follows, before you knit: FirstName_Exercise2.Rmd)
+
+
+
+7. Knit this completed file to pdf and upload that to the Exercises folder. 
+
+
+
+*Troubleshooting for knitting errors can be found on the EMTlearnsR webpage under the second >> under General R Resources (the slide deck). Slides toward the end give you Mac- or PC-specific troubleshooting steps when having trouble knitting. If you've tried everything in here (and google isn't helping either), email me a screen shot of the error you're still getting and what you've tried so far. The first knit is the hardest :) so don't lose heart if it takes some time to iron out kinks. 

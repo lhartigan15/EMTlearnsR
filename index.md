@@ -15,9 +15,9 @@ I will keep this page updated with our bi-weekly code files and recordings, prac
 
 ### Exercises
 Please upload all exercises by their due date whenever possible (before the R session begins that day). You should upload your completed file(s) to the folder here: M:\Professional Development\EMT Learns R\Exercises. Name files as follows: "Exercise # - First Name Last Name." 
-|-------------------|-----------------------|
-|[Exercise 1 pdf](./Exercise-1.pdf) |  due 11/8/21 |
-|[Exercise 2 pdf](./Exercise-2.pdf), [Exercise 2 .Rmd starter](./Exercise 2.Rmd) | due 11/22/21 |
+
+[Exercise 1 pdf](./Exercise-1.pdf) |  due 11/8/21 
+[Exercise 2 pdf](./Exercise-2.pdf), [Exercise 2 .Rmd starter](./Exercise 2.Rmd) | due 11/22/21 
 
 ### YAML header
 When you download an .Rmd file from this site, the YAML header will be removed (for some reason). Here is a sample header that you can reference when adding your header at the top of your .Rmd file. Note, your header MUST begin on line 1 of your .Rmd file and the formatting must stay consistent in order for it to work (e.g., must begin with three dashes and end with three dashes).

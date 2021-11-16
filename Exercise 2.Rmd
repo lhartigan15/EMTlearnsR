@@ -33,7 +33,7 @@ output:
 
 
 
-6. Knit this completed file to html and upload that to the Exercises folder (be sure to name this .Rmd file as follows, before you knit: FirstName_Exercise2.Rmd)
+6. Knit this completed file to html and upload that to the Exercises folder (be sure to name this .Rmd file as follows, before you knit: Exercise 2 - FirstName LastName)
 
 
 

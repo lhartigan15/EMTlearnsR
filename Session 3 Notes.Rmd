@@ -1,0 +1,112 @@
+---
+title: "Importing and 'tidying' data"
+author: Lacey Hartigan
+date: "11/22/21"
+geometry: margin=2cm
+output:
+  pdf_document: default
+---
+
+```{r} 
+knitr::opts_chunk$set(echo = TRUE) 
+
+library(haven)
+library(readxl)
+library(tidyverse)
+```
+
+## Loading Data
+
+Today, we're going to be working with naloxone distribution data. This is a data file that includes all naloxone distributions under TN SOR to date. I'm going to read it in from the M: Drive. 
+```{r}
+naloxone<-read_excel("M:/322 - State Opioid Response (SOR) Grant/11 - Quarterly and Annual Reports/Data/Naloxone Inventory Data/naloxonecleaned_allobservations_todate.xlsx")
+```
+
+## Descriptives
+
+First, let's go through some basic functions to pull descriptives from our data. Often times we want to know counts of each category, for example, for categorical data, or perhaps we want to pull the mean/median for continuous data. Let's explore some functions to do these things below. Note, this is NOT an exhaustive list. There are many many more functions than what I'll show you below.
+
+First, let's pull a summary of the entire dataset so that I can quickly glimpse its attributes:
+```{r}
+summary(naloxone)
+#for categorical variables, this doesn't tell me much; but for continuous data, it gives me a 5-number summary. It also gives mea  count of missing for each of my variables (remember, in R, NA means missing)
+```
+Next, let's go ahead and pull frequency tables for categorical variables (I'm just going to do a few), so that we can see more info than the summary data above. Let's also pull a table for our "region" variable to see how well naloxone distribution varies across our state's regions.  
+```{r}
+table(naloxone$typeofagencyutilizewhatsontheage)
+#This gives me a frequency count of all the types of agencies. For example, 273 of our 871 entries went to SSPs. What is the most common agency type in this naloxone data? 
+
+table(naloxone$region)
+#Which region has the most naloxone entries? Which region has the least?
+```
+### Limiting the data
+
+It's great to see the overall picture of the data, but typically, we'll be working on a specific year/time period, rather than all data that we have. We can limit the dataset using different R commands, so that way we can pull only the data we want. Let's take the most recent fiscal year and just keep FY21. 
+```{r}
+#we're going to do this using tidyverse functions, which tend to be the most dynamic functions in R (in my experience). We need to save our newly filtered dataset (and I'm going to save it as something new, so I don't write over the original data), and we're going to code this in a sequential way using what tidyverse calls a 'pipe' (%>%). 
+fy21data<-naloxone%>%
+    filter(FY21==1)
+    #FILTER operates on ROWS of data (think about filtering in excel); so what this will do is it will only keep rows where FY21==1 (note that in the preparation of this data I create a "dummy" variable for all FYs; so, if it equals 0, then that row/observation is NOT in that FY; if it equals 1, then that row/observation IS from that FY).
+
+#How many observations do we have for FY21? How many variables are in this new dataset? 
+
+#Now that we have a dataset with just FY21, let's re-pull our agency list to see how that distribution looks for FY21 data.
+table(fy21data$typeofagencyutilizewhatsontheage)
+#what was the most common entry for FY21? 
+```
+While we use `filter` to only keep (or exclude) the rows/observations we want (or don't want), we use `select` to only keep columns/variables that we want. Let's say that in our FY21 dataset we want to only keep FY21 variables.
+```{r}
+fy21data<-fy21data%>%
+    select(region, typeofagencyutilizewhatsontheage, unitsdistr, county, zipcode, FY21_Q1:FY21_Q4)
+#LOOK at the resulting dataset. Make sure it looks how you expected it to. 
+```
+
+This is all good, but what if I want to plot the number of each type of agency? Then I need to prep a new dataset with the counts I pulled above. I can do that using `group_by`, `summarize`, and `n()` functions. 
+```{r}
+agencyplot<-fy21data%>%
+    group_by(typeofagencyutilizewhatsontheage)%>%
+    summarize(count=n())
+#LOOK at the resulting dataset. Does it look how you want it to? If so, you can go ahead and plot it. 
+```
+
+```{r}
+agenplot<-ggplot(agencyplot, aes(typeofagencyutilizewhatsontheage, y=count))+
+    geom_bar(stat="identity")
+agenplot
+
+#what's wrong with this plot? let's fix it - and let's also make it a little prettier :)
+#remove the legend and then tweak the angle of the labels so we can see them
+agenplot<-ggplot(agencyplot, aes(x=typeofagencyutilizewhatsontheage, y=count, fill=typeofagencyutilizewhatsontheage))+
+    geom_bar(stat="identity")+
+    theme(legend.position="none", axis.text.x=element_text(angle=45))
+agenplot
+
+#getting closer - need to adjust where the labels start/end now - and remove the gray grid/background - I am also going to reorder so that they are in descending order; finally, I'm going to flip the x- and y-axes so that the labels are easier to read (I often do this when I have long labels)
+agenplot<-ggplot(agencyplot, aes(x=fct_reorder(typeofagencyutilizewhatsontheage, count), y=count, fill=typeofagencyutilizewhatsontheage))+
+    geom_bar(stat="identity")+
+        theme_classic()+
+    theme(legend.position="none", axis.text.x=element_text(angle=45, hjust=1), plot.title=element_text(size=12))+
+    xlab("")+ylab("Count")+
+    ggtitle("Naloxone Distribution by Agency Type, FY2021")+
+    coord_flip()
+agenplot
+```
+These are the counts of distributions, but they don't give me any insight into just how MUCH naloxone agencies are receiving. I'm going to summarize the data in a different way, and pull that data. 
+```{r}
+unitsbyagency<-fy21data%>%
+    group_by(typeofagencyutilizewhatsontheage)%>%
+    summarize(units=sum(unitsdistr))
+#LOOK at the resulting dataset. Does it look how you want it to? If so, you can go ahead and plot it. 
+```
+
+```{r}
+unitsplot<-ggplot(unitsbyagency, aes(x=fct_reorder(typeofagencyutilizewhatsontheage, units), y=units, fill=typeofagencyutilizewhatsontheage))+
+    geom_bar(stat="identity")+
+        theme_classic()+
+    theme(legend.position="none", axis.text.x=element_text(angle=45, hjust=1), plot.title=element_text(size=12))+
+    xlab("")+ylab("Number of Units")+
+    ggtitle("Naloxone Units Distribution by Agency Type, FY2021")+
+    coord_flip()
+unitsplot
+```
+

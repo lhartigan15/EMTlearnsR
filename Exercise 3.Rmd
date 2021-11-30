@@ -1,0 +1,48 @@
+---
+title: "Exercise 3"
+author: "EMT Learns R"
+output:
+  pdf_document: default
+---
+
+Don't forget to add your YAML header to the top of this .Rmd file before you begin the exercise. 
+
+1. You will need the following packages for this exercise: `readxl`, `haven`, and `tidyverse`. Load these in your first code chunk below.
+```{r}
+
+```
+
+2. Import the excel dataset named ("naloxonecleaned_allobservations_todate") from the M Drive (*Project folder 322-State Opioid Response (SOR) > 11 - Quarterly and Annual Reports > Data > Naloxone Inventory Data*)
+```{r}
+
+```
+
+3. Examine this dataset. 
+```{r}
+
+```
+3a. What is the range of the number of units distributed (i.e., the minimum and the maximum)?      
+
+3b. What is the range of distribution dates reflected in this dataset (i.e., the earliest and latest distributions)? 
+
+4. Let's say we're just interested in examining the last quarter (Q4) of fiscal year 2021 (FY21). Create a new dataset (remember - give it a NEW name) that only includes FY21_Q4 observations. 
+```{r}
+
+```
+4a. How many observations do we have for FY21_Q4? 
+
+
+5. Next, create a count of total units distributed by region in FY21_Q4. 
+```{r}
+
+```
+5a. Which region distributed the highest number of naloxone units in FY21_Q4? 
+
+
+6. Plot the regional distribution of naloxone units for FY21_Q4. Be sure your plot is labeled appropriately and that everything is readable/understandable. 
+```{r}
+
+```
+
+BONUS:
+Which county received the highest number of naloxone units in FY2021 (the whole fiscal year, not just the last quarter)? 

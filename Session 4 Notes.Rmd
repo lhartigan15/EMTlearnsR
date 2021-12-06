@@ -1,0 +1,145 @@
+---
+title: "Importing and 'tidying' data"
+author: Lacey Hartigan
+date: "12/6/21"
+geometry: margin=2cm
+output:
+  pdf_document: default
+---
+
+```{r} 
+knitr::opts_chunk$set(echo = TRUE) 
+
+library(haven)
+library(readxl)
+library(tidyverse)
+```
+
+## Expanding R skills to examine our data
+
+Today, we're going to continue our exploration of descriptive statistics... only this week, we're not going to work solely in naloxone data, but instead we're going to work in a dataset of our choosing. Think about a dataset that you know well and that you use in your EMT work. Read that in here (remember, you will need to adjust the code to read in whatever file type you have - I'm supplying sample code below for the most common types). Note: if you don't have a dataset you actively work with, you can always use the naloxone data again.
+```{r}
+exceldata<-read_excel("FILEPATH/FILENAME.xlsx")
+csvdata<-read_csv("FILEPATH/FILENAME.csv")
+statadata<-read_dta("FILEPATH/FILENAME.dta")
+spssdata<-read_spss("FILEPATH/FILENAME.sav")
+sasdata<-read_sas("FILEPATH/FILENAME.sas7bdat")
+
+respratedata<-read_dta("M:/334 - TN Together/000 - TN Together 2020-21 Administration/Analysis/output/responserates.dta")
+
+#note: you can also read in directly from websites, when the data is stored in a site. Instead of using a filepath/filename, just list the web address. For example:
+hsb_sas<-read_sas("https://stats.idre.ucla.edu/wp-content/uploads/2016/02/hsb2.sas7bdat")
+```
+
+## Descriptives
+
+First, let's pull a summary of your entire dataset (throughout this file I'm going to use the example SAS dataset I read in above, named hsb_sas):
+```{r}
+summary(hsb_sas)
+```
+I also pulled a codebook for my dataset so that I know how categorical variables were coded. I'm pasting that here:
+*id = Student ID
+*gender = Student's gender, with levels female and male
+*race = Student's race, with levels african american, asian, hispanic, and white
+*ses = Socio economic status of student's family, with levels low, middle, and high
+*schtyp=Type of school, with levels public and private
+*prog=Type of program, with levels general, academic, and vocational
+*read=Standardized reading score
+*write=Standardized writing score
+*math=Standardized math score
+*science=Standardized science score
+*socst=Standardized social studies score
+
+Pull frequency tables for at least 2 categorical variables from your dataset. 
+```{r}
+table(hsb_sas$schtyp)
+
+table(hsb_sas$race)
+```
+### Limiting the data
+
+Limit your dataset if you need to (e.g., maybe you just want to look at one time period). For my data today, I'm going to leave all observations in. But, I'm going to drop variables (columns) that I know I'm not going to use (id). 
+```{r}
+hsb_data<-hsb_sas%>%
+    select(-id)
+```
+
+### Conditional means
+
+First, I want to examine an outcome variable of interest (academic performance in math) by some of my demographic groups to see if I have any differences. I'm going to do that by grouping by key demographic variables and then calculating means on my outcome measure. I'm not saving these metrics right now as I'm just examining them for potential differences. 
+```{r}
+#this would give me the mean reading score for every observation 
+mean(hsb_data$read)
+
+#First, looking at math, reading, writing, science, and social studies scores by gender
+hsb_data%>%
+    group_by(female)%>%
+    summarize(meanmath=mean(math),
+              meanread=mean(read),
+              meanwrite=mean(write),
+              meanscience=mean(science),
+              meansoc=mean(socst))
+```
+It looks like there might be gender differences in writing and science. 
+
+Next, I'm going to look at each outcome by race.
+```{r}
+hsb_data%>%
+    group_by(race)%>%
+    summarize(meanmath=mean(math),
+              meanread=mean(read),
+              meanwrite=mean(write),
+              meanscience=mean(science),
+              meansoc=mean(socst))
+```
+There do appear to be large variations across each subject assessment based on race. 
+
+Given that SES is categorial in this dataset (low, middle, high), I can also examine based on SES.
+```{r}
+hsb_data%>%
+    group_by(ses)%>%
+    summarize(meanmath=mean(math),
+              meanread=mean(read),
+              meanwrite=mean(write),
+              meanscience=mean(science),
+              meansoc=mean(socst))
+```
+Again, there do appear to be differences on scores based on SES.
+
+Next I'm going to look at school type and then program type.
+```{r}
+hsb_data%>%
+    group_by(schtyp)%>%
+    summarize(meanmath=mean(math),
+              meanread=mean(read),
+              meanwrite=mean(write),
+              meanscience=mean(science),
+              meansoc=mean(socst))
+
+hsb_data%>%
+    group_by(prog)%>%
+    summarize(meanmath=mean(math),
+              meanread=mean(read),
+              meanwrite=mean(write),
+              meanscience=mean(science),
+              meansoc=mean(socst))
+```
+There appear to be differences by both school type and program type. 
+
+### Plotting
+
+Using your conditional means, go ahead and plot some of the interesting descriptive comparisons you found. Hint: if you didn't save any of your results above, you'll need to in order to plot them.
+
+I'm going to plot mean math score by SES.
+```{r}
+sesmathdat<-hsb_data%>%
+    group_by(ses)%>%
+    summarize(meanmath=mean(math))
+
+sesmath<-ggplot(sesmathdat, aes(x=ses, y=meanmath, fill=ses))+
+    geom_bar(stat="identity")+
+    theme(legend.position="none")
+sesmath
+```
+
+

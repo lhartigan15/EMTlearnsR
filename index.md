@@ -9,11 +9,13 @@ I will keep this page updated with our bi-weekly code files and recordings, prac
 1. [see recording below; no notes provided]
 2. [Session 2 (11/8/21) .Rmd File](./Session 2 Notes.Rmd), [Session 2 Knit Notes](./Session-2-Notes.pdf), [college dataset](./college.Rdata)
 3. [Session 3 (11/22/21) .Rmd File](./Session 3 Notes.Rmd), [Session 3 Knit Notes](./Session-3-Notes.pdf)
+4. [Session 4 (12/6/21) .Rmd File](./Session 4 Notes.Rmd), [Session 4 Knit Notes](./Session-4-Notes.pdf)
 
 ### Meeting Recordings
 1. [Session 1 (10/25/21): What are R, Rstudio, and RMarkdown?](https://us02web.zoom.us/rec/share/ouXW6BEqyR7O7-jd6hNhmg7aoaH2LxzhAkhr4bdq_TCd6P7sRzjlKBgeHeVqYAjf.DwEPL-ZgI_1oKyyx) (passcode: @hszg4*r)
 2. [Session 2 (11/8/21): More on RMarkdown (working directory/etc.), reading in data, intro to plotting using ggplot, knitting](https://us02web.zoom.us/rec/share/-MQsEJHGdqYbut-v41xFGlw5gXl9Gc2WsJOrBiihRUFDk-4SD6k0wuWUe7w7JEnc.24ZixORrfVB4ffsL) (passcode: Tj#+b3Qi) 
 3. [Session 3 (11/22/21): Tidying Data](https://us02web.zoom.us/rec/share/jOARzCSWeYesgDv9jEftBuNaICYs0JX72lCh3kQbE5EE_g-brUgTPuYTi1P_y2Zn.BGEEBCyzTsbvSVqB) (passcode: m$uw32sm) 
+4. [Session 4 (12/6/21): Practicing with our own data](https://us02web.zoom.us/rec/share/nih7dM77aAxH6r2NJ-q7xW5z1x3EBFMeeqT5ZMwjOvSiJd9QPr7V8_RGvf7qJyaw.0pm32a8Wf9alV_EU) (passcode: 3XW1U2+.)
 
 ### Exercises
 Please upload all exercises by their due date whenever possible (before the R session begins that day). You should upload your completed file(s) to the folder here: M:\Professional Development\EMT Learns R\Exercises. Name files as follows: "Exercise # - First Name Last Name." 

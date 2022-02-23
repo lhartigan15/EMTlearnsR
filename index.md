@@ -20,6 +20,7 @@ I will keep this page updated with our bi-weekly code files and recordings, prac
 4. [Session 4 (12/6/21): Practicing with our own data](https://us02web.zoom.us/rec/share/nih7dM77aAxH6r2NJ-q7xW5z1x3EBFMeeqT5ZMwjOvSiJd9QPr7V8_RGvf7qJyaw.0pm32a8Wf9alV_EU) (passcode: 3XW1U2+.)
 5. [Session 5 (12/20/21): Intro to Slack and Future R Plans](https://us02web.zoom.us/rec/share/4F3-NMuWq8-Yrx4dlGsLS9wty_2tZLsNusPlnhDkJTxOaiDr01fHLQwA69euCKoy.KPTMKbmnbr1blsPl) (passcode: y*4WYa#6)
 6. [Session 6 (2/7/22): Review, Merging and Appending, Future Session Plans](https://us02web.zoom.us/rec/share/hNIWMfU0WfRNKRMWWbltwabv2FzwCm3d-2Xr1Q9CRXRmdltNJpUNZm86aFmNC71w.s2nNZ293oEF55b9k) (passcode: hj87^@#453d)
+7. [Session 7 (2/22/22): Diving into our EMT Projects - Youjin GGPLOT & Brissa Building Tables for Survey questions](https://us02web.zoom.us/rec/share/7EXqZiCpbMeOOCnBwSgGiqZmIwcd183gsVsDv5HdnWUCRv1eiPwiInC_xk7k8qRo.V5GKKAzCULk_Gath?startTime=1645561080000) (passcode: Yr5qLdH=)
 
 ### Exercises
 Please upload all exercises by their due date whenever possible (before the R session begins that day). You should upload your completed file(s) to the folder here: M:\Professional Development\EMT Learns R\Exercises. Name files as follows: "Exercise # - First Name Last Name." 
